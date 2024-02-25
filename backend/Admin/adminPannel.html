@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Admin Panel</title>
+     <link rel="stylesheet" href="adminPannel.css">
+</head>
+
+<body>
+     <div class="form-container">
+          <form id="productForm" method="post" action="/adminPannel">
+
+               <div class="input-wrapper">
+                    <div class="input-container">
+                         <input required type="text" id="productTitle" placeholder="Product title" name="productTitle">
+                    </div>
+                    <div class="input-container">
+                         <input required type="text" placeholder="Product category" id="productCategory"
+                              name="productCategory">
+                    </div>
+               </div>
+
+
+               <div class="input-wrapper">
+                    <div class="input-container">
+                         <input required type="url" id="productUrl" placeholder="Image URL" name="productUrl">
+                    </div>
+                    <div class="input-container">
+                         <input required type="number" placeholder="Product Price" id="productPrice"
+                              name="productPrice">
+                    </div>
+               </div>
+
+               <div class="input-wrapper">
+                    <div class="input-container">
+                         <input required id="productColor" placeholder="Product color" name="productColor">
+                    </div>
+                    <div class="input-container">
+                         <input type="text" id="productId" placeholder="Product id" name="productId">
+                    </div>
+               </div>
+
+
+               <div class="input-wrapper" style="display: block;">
+                    <div class="input-container">
+                         <textarea id="productDescription" placeholder="Product description" name="productDesc" rows="4"
+                              required></textarea>
+                    </div>
+               </div>
+
+               <button type="submit">Add Product</button>
+          </form>
+     </div>
+</body>
+
+</html>
