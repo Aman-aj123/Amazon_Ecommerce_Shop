@@ -378,12 +378,12 @@
     .show-productArea .right,
     .show-productArea .left {
         margin: auto;
-        width: 98%;
+        width: 90%;
         height: auto;
     }
 
     .show-productArea .left .product-image {
-        height: 310px;
+        height: 320px;
     }
 
 

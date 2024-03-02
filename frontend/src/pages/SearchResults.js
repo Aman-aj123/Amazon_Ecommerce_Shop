@@ -26,10 +26,10 @@ const SearchResults = (props) => {
           Fetch_Products(URL)
                .then((data) => {
                     setTimeout(() => {
-                         setProducts(data.productItems);
-                         setTotalPages(data.totalPages);
-                         setCurrentPage(data.currentPage);
-                         setTotalProducts(data.totalResults);
+                         setProducts(data?.productItems);
+                         setTotalPages(data?.totalPages);
+                         setCurrentPage(data?.currentPage);
+                         setTotalProducts(data?.totalResults);
                          setLoading(false);
                     }, 1000);
                }).catch((error) => {

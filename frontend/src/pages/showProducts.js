@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Fetch_Products from '../Api/Fetch_Products';
 import Top_Products from "../components/Top_Products"
 import All_products_Info from "../components/images/All_products_Info.json"
+
+import ProductsContext from "../context/ProductsContext"
 
 const ShowProducts = (props) => {
     const [products, setProducts] = useState([]);
@@ -17,8 +19,8 @@ const ShowProducts = (props) => {
 
         Fetch_Products(URL)
             .then((data) => {
-                    setProducts(data.productItems);
-                    setLoading(false);
+                setProducts(data.productItems);
+                setLoading(false);
             })
             .catch((error) => console.log(`Error happens while fetching the data with: ${error}`));
     };
@@ -30,13 +32,21 @@ const ShowProducts = (props) => {
         fetchData();
     }, [productId]);
 
+
+    // Seting the state of products with clickedProduct
+    const data = useContext(ProductsContext);
+    const { productsState, setProductsState } = data;
+
     const handleAddToCart = () => {
-        if(clickedProduct.length !== 0){
-            props.addToCart(clickedProduct);
+        if (productsState) {
+            setProductsState(productsState.concat(clickedProduct));
+        } else {
+            setProductsState(clickedProduct);
         }
         navigate("/cart");
-        window.scroll(0, 0);
-    };
+
+        window.scrollTo(0,0);
+    }
 
 
     return (

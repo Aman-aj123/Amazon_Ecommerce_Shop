@@ -858,10 +858,6 @@ footer .dev-info {
 }
 
 
-
-
-
-
 .top-products h2 {
     font-size: 30px;
 }
@@ -875,8 +871,6 @@ footer .dev-info {
     margin-top: 20px;
     justify-content: flex-start;
 }
-
-
 
 
 
@@ -900,7 +894,8 @@ footer .dev-info {
 
 .top-product-items .top-product-img {
     width: 100%;
-    height: 145px;
+    height: 160px;
+    height: 160px;
 }
 
 .top-product-img img {

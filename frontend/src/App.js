@@ -10,6 +10,7 @@ import ShowProducts from './pages/showProducts';
 import Cart from './pages/Cart';
 import SearchResults from './pages/SearchResults';
 import All_products_Info from './components/images/All_products_Info';
+import ProductsState from './context/ProductsState';
 
 
 function App() {
@@ -19,31 +20,31 @@ function App() {
         return element;
     });
 
-    const addToCart = (product) => {
-        setCartItems([...cartItems, product]);
-    };
+
 
     return (
         <>
             <BrowserRouter>
                 <Header />
-                <Routes>
-                    <Route path="/" element={<Shop />} />
- 
+                <ProductsState>
+                    <Routes>
+                        <Route path="/" element={<Shop />} />
 
-                    <Route path="/search/:keyword" element={<SearchResults />} />
 
-                    <Route path="/:category" element={<Categories productCategory={allFilters} />} />
+                        <Route path="/search/:keyword" element={<SearchResults />} />
 
-                    <Route
-                        path="/:category/:productId"
-                        element={<ShowProducts addToCart={addToCart} />}
-                    />
+                        <Route path="/:category" element={<Categories productCategory={allFilters} />} />
 
-                    <Route path="/cart" element={<Cart cartItems={cartItems} />} />
+                        <Route
+                            path="/:category/:productId"
+                            element={<ShowProducts />}
+                        />
 
-                </Routes>
-                <Footer />
+                        <Route path="/cart" element={<Cart />} />
+
+                    </Routes>
+                    <Footer />
+                </ProductsState>
             </BrowserRouter>
         </>
     );
